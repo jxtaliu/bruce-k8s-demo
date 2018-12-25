@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: nginx
 spec:
-  shareProcessNamespace: true
+  shareProcessNamespace: true # 共享PID Namespace
   containers:
   - name: nginx
     image: nginx
