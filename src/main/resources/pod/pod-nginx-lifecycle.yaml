@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lifecycle-nginx-demo
+spec:
+  containers:
+  - name: lifecycle-nginx-demo-container
+    image: nginx
+    lifecycle:
+      postStart: # 容器启动后，执行该操作；不保障严格顺序；如果执行超时或者失败，会导致Pod处于失败状态；
+        exec:
+          command: ["/bin/sh", "-c", "echo Hello from the postStart handler > /usr/share/message"]
+      preStop: # 容器停止或者杀死之前，同步，阻塞容器被杀死，直到当前Hook执行完毕；
+        exec:
+          command: ["/usr/sbin/nginx", "-s","quit"]
