@@ -1,9 +1,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: demo-nginx-share
+  name: demo-nginx-host
 spec:
-  shareProcessNamespace: true # 共享PID Namespace
+  hostNetwork: true
+  hostIPC: true
+  hostPID: true
   containers:
   - name: nginx
     image: nginx

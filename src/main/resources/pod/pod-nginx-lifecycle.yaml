@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: lifecycle-nginx-demo
+  name: demo-nginx-lifecycle
 spec:
   containers:
   - name: lifecycle-nginx-demo-container
