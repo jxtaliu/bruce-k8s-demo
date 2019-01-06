@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: bruce-ingress
+spec:
+  tls:
+  - hosts:
+    - bruce.example.com
+    secretName: bruce-secret
+  rules:
+  - host: bruce.example.com
+    http:
+      paths:
+      - path: /tea
+        backend:
+          serviceName: tea-svc
+          servicePort: 80
+      - path: /coffee
+        backend:
+          serviceName: coffee-svc
+          servicePort: 80
